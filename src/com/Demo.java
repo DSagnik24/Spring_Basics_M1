@@ -4,6 +4,6 @@ package com;
 @FunctionalInterface
 public interface Demo {
 
-    void sample();
+    int sample(int a,int b);
 
 }
