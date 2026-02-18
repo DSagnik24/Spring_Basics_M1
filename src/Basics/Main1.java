@@ -3,8 +3,8 @@ package Basics;
 // T - type, N - Number, K - key, V - Values, E - Element
 public class Main1 {
     public static void main(String[] args) {
-        Box box = new Box();
-        box.set(10);
+        Box<String> box = new Box();
+        box.set("10");
 
         String s = (String) box.get();
     }
