@@ -28,7 +28,6 @@ public class Main{
                 new Student("BISWA", 55, 20),
                 new Student("CHARLIE", 70, 23),
                 new Student("DEV", 95, 24)
-
         );
         List<Student> passes = students.stream()
                 .filter(s->s.name.startsWith("A"))

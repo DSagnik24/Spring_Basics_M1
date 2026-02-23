@@ -5,7 +5,7 @@ package Threads;
 public class Main {
     static final Object lock = new Object();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Thread worker = new Thread(
                 //Multiple Line Lambda Function
                 ()->{
@@ -22,5 +22,19 @@ public class Main {
                     }
                 }
         );
+        System.out.println("State after creation : "+worker.getState());
+        worker.start();
+        Thread.sleep(100);
+        System.out.println("State after starting: "+worker.getState());
+        Thread.sleep(500);
+        System.out.println("State during sleep: "+worker.getState());
+        Thread.sleep(2000);
+        System.out.println("State during wait(): "+worker.getState());
+
+        synchronized (lock){
+            lock.notify();
+        }
+        worker.join();
+        System.out.println("Stater after complete: "+worker.getState());
     }
 }
